@@ -17,6 +17,11 @@ First Java project - spec taken from PragDave's [Kata](http://codekata.com/kata/
 - [ ] Oranges for £1.99/kilo.
 - [ ] Two cans of Coke, for £1.
 
+#### Items in stock:
+- Beans @ 0.5/unit
+- Coke @ 0.7/unit
+- Orange @ 0.00199/gram
+
 ### Initial architecture approach
 As it is my first project I'm going to test drive using unit tests initially with a fairly simple [Facade pattern](https://en.wikipedia.org/wiki/Facade_pattern) and then potentially refactor with the [Onion Pattern](http://jeffreypalermo.com/blog/the-onion-architecture-part-1/) for future extensibility - and for practice!   
 
