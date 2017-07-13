@@ -20,6 +20,8 @@ First Java project - spec taken from PragDave's [Kata](http://codekata.com/kata/
 ### Initial architecture approach
 As it is my first project I'm going to test drive using unit tests initially with a fairly simple [Facade pattern](https://en.wikipedia.org/wiki/Facade_pattern) and then potentially refactor with the [Onion Pattern](http://jeffreypalermo.com/blog/the-onion-architecture-part-1/) for future extensibility - and for practice!   
 
+A very rough first diagram of classes can be viewed and commented on [here](https://drive.google.com/file/d/0B0xb9lq0JFMDTnY3bUM4Zm8xdnc/view?usp=sharing)
+
 ### Tools:
 - Build: [Gradle](https://gradle.org/)
 - Testing: [JUnit](http://junit.org/junit4/), [Mockito](http://junit.org/junit4/)
