@@ -2,32 +2,23 @@ package domain;
 
 public class Coke implements Item {
 
-	String name;
-	Double price;
-	
-	public Coke() {
-		setName("coke");
-		setPrice(0.7);
-	}
-	
-	@Override
-	public String getName() {;
-		return name;
-	}
-	
-	@Override
-	public void setName(String itemName) {
-		name = itemName;
-	}
-	
-	@Override
-	public Double getPrice() {
-		return price;
-	}
-	
-	@Override
-	public void setPrice(Double itemPrice) {
-		price = itemPrice;
-	}
+	public static String displayName = "coke";
+	public static Double unitPrice = 0.7;
 
+	public static String getDisplayName() {
+		return Coke.displayName;
+	}
+	
+	public static void setDisplayName(String newName) {
+		Coke.displayName = newName;
+	}
+	
+	public static Double getUnitPrice() {
+		return Coke.unitPrice;
+	}
+	
+	public static void setUnitPrice(Double newPrice) {
+		Coke.unitPrice = newPrice;
+	}
+	
 }

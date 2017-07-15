@@ -1,6 +1,6 @@
 package domain;
 
-public class ItemFactory {
+public class ItemFactory implements ItemAdmin{
 
    public Item getItem(String itemType){
       if(itemType == null){

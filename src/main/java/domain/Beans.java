@@ -2,32 +2,23 @@ package domain;
 
 public class Beans implements Item {
 	
-	String name;
-	Double price;
+	public static String displayName = "beans";
+	public static Double unitPrice = 0.5;
 	
-	public Beans() {
-		setName("beans");
-		setPrice(0.5);
+	public static String getDisplayName() {
+		return Beans.displayName;
 	}
 	
-	@Override
-	public String getName() {;
-		return name;
+	public static void setDisplayName(String newName) {
+		Beans.displayName = newName;
 	}
 	
-	@Override
-	public void setName(String itemName) {
-		name = itemName;
+	public static Double getUnitPrice() {
+		return Beans.unitPrice;
 	}
 	
-	@Override
-	public Double getPrice() {
-		return price;
-	}
-	
-	@Override
-	public void setPrice(Double itemPrice) {
-		price = itemPrice;
+	public static void setUnitPrice(Double newPrice) {
+		Beans.unitPrice = newPrice;
 	}
 
 }
