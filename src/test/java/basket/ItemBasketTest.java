@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import domain.Beans;
+import domain.BeansItem;
 import domain.Item;
 import domain.ItemAdmin;
 import domain.ItemFactory;

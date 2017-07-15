@@ -1,24 +1,24 @@
 package domain;
 
-public class Beans implements Item {
+public class BeansItem implements Item {
 	
 	public static String displayName = "beans";
 	public static Double unitPrice = 0.5;
 	
 	public static String getDisplayName() {
-		return Beans.displayName;
+		return BeansItem.displayName;
 	}
 	
 	public static void setDisplayName(String newName) {
-		Beans.displayName = newName;
+		BeansItem.displayName = newName;
 	}
 	
 	public static Double getUnitPrice() {
-		return Beans.unitPrice;
+		return BeansItem.unitPrice;
 	}
 	
 	public static void setUnitPrice(Double newPrice) {
-		Beans.unitPrice = newPrice;
+		BeansItem.unitPrice = newPrice;
 	}
 
 }

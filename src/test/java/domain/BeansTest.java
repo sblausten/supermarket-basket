@@ -7,14 +7,14 @@ public class BeansTest {
 	
 	@Test
 	public void getDisplayName_ShouldReturnStaticDisplayNameVariable() {
-		assertEquals(Beans.displayName, Beans.getDisplayName());
+		assertEquals(BeansItem.displayName, BeansItem.getDisplayName());
 	}
 
 	@Test
 	public void setDisplayName_ShouldChangeStaticDisplayNameVariable() {
-		String originalName = Beans.displayName;
-		Beans.setDisplayName("Carrots");
-		String newName = Beans.displayName;
+		String originalName = BeansItem.displayName;
+		BeansItem.setDisplayName("Carrots");
+		String newName = BeansItem.displayName;
 		assertNotEquals(originalName, newName);
 		assertEquals("Carrots", newName);
 	}
@@ -22,13 +22,13 @@ public class BeansTest {
 	@Test
 	public void getUnitPrice_ShouldReturnDoubleStaticUnitPriceVariable() {
 		Double expectedPrice = 0.5;
-		assertEquals(expectedPrice, Beans.getUnitPrice());
+		assertEquals(expectedPrice, BeansItem.getUnitPrice());
 	}
 	
 	@Test
 	public void setUnitPrice_ShouldChangeStaticUnitPriceVariable() {
-		Beans.setUnitPrice(0.1);
-		Double newPrice = Beans.unitPrice;
+		BeansItem.setUnitPrice(0.1);
+		Double newPrice = BeansItem.unitPrice;
 		Double expectedOriginalPrice = 0.5;
 		Double expectedNewPrice = 0.1;
 		assertNotEquals(expectedOriginalPrice, newPrice);

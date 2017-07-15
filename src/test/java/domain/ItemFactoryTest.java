@@ -28,6 +28,6 @@ public class ItemFactoryTest {
 	@Test
 	public void getItem_ShouldReturnCorrectItemImplementationIfPassedValidItemName() {
 		ItemFactory testFactory = new ItemFactory();
-		assertThat(testFactory.getItem("beans"), instanceOf(Beans.class));
+		assertThat(testFactory.getItem("beans"), instanceOf(BeansItem.class));
 	}
 }

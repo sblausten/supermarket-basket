@@ -7,11 +7,11 @@ public class ItemFactory implements ItemAdmin{
          return null;
       }		
       if(itemType.equalsIgnoreCase("beans")){
-         return new Beans();
+         return new BeansItem();
       } else if(itemType.equalsIgnoreCase("coke")){
-         return new Coke();
+         return new CokeItem();
       } else if(itemType.equalsIgnoreCase("oranges")){
-         return new Oranges();
+         return new OrangesItem();
       }
       
       return null;
