@@ -1,11 +1,13 @@
 package items;
 
+import java.math.BigDecimal;
+
 public class Item {
 	
 	private String displayName;
-	private Double unitPrice;
+	private BigDecimal unitPrice;
 	
-	public Item(String name, Double price) {
+	public Item(String name, BigDecimal price) {
 		displayName = name;
 		unitPrice = price;
 	}
@@ -14,7 +16,7 @@ public class Item {
 		return this.displayName;
 	}
 	
-	public Double getUnitPrice() {
+	public BigDecimal getUnitPrice() {
 		return this.unitPrice;
 	}
 	
