@@ -37,7 +37,7 @@ public class CokeOfferTest {
 		testOffer.setOffer(4);
 		assertEquals(testOffer.getOfferCount(), 2);
 		CokeOffer testOffer2 = new CokeOffer();
-		testOffer.setOffer(6);
+		testOffer2.setOffer(6);
 		assertEquals(testOffer2.getOfferCount(), 3);
 	}
 	
