@@ -1,8 +1,5 @@
 package till;
 
-import calculator.ItemsCalculator;
-import calculator.SavingsCalculator;
-import items.Item;
 import offers.Offer;
 
 import java.math.BigDecimal;
@@ -14,8 +11,8 @@ public class Till {
 
 	private BasketCalculator basketCalculator;
 
-	public Till(List<Item> items) {
-		basketCalculator = new BasketCalculator(new ItemsCalculator(items), new SavingsCalculator(items));
+	public Till(BasketCalculator basketCalc) {
+		basketCalculator = basketCalc;
 	}
 
 	public BigDecimal getNetTotal() {

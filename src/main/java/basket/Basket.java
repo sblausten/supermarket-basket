@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import items.Item;
-import till.Till;
+import till.TillGenerator;
 
 public class Basket {
 
@@ -14,8 +14,8 @@ public class Basket {
 		items.add(type);
 	}
 
-	public Till checkout() {
-		return new Till(items);
+	public void checkout() {
+		TillGenerator.newTill(items);
 	}
 
 }
