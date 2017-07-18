@@ -1,21 +1,21 @@
-package domain;
+package items;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ItemsImpl implements Items {
+public class ItemsFactory implements Items {
 
 	private static Map<String, Double> items = new HashMap<String, Double>();
 
-	public ItemsImpl() {
-			items.put("coke", 0.7);
-			items.put("beans", 0.5);
-			items.put("oranges", 0.00199);
+	public ItemsFactory() {
+		items.put("coke", 0.7);
+		items.put("beans", 0.5);
+		items.put("oranges", 0.00199);
 	}
 
 	public Item getNewItem(String itemName) {
 		try {
-			Double itemPrice = getPrice(itemName);
+			Double itemPrice = getItemPrice(itemName);
 			if (itemPrice != null) {
 				return new Item(itemName, itemPrice);
 			}
@@ -26,10 +26,10 @@ public class ItemsImpl implements Items {
 		}
 	}
 
-	public Double getPrice(String itemName) {
+	public Double getItemPrice(String itemName) {
 		try {
 			itemName = itemName.toLowerCase();
-			if(items.containsKey(itemName)) {
+			if (items.containsKey(itemName)) {
 				return items.get(itemName);
 			}
 			throw new Exception("Requested Item does not exist with that name");
@@ -38,7 +38,7 @@ public class ItemsImpl implements Items {
 			return null;
 		}
 	}
-	
+
 	public void addNewItemType(String name, Double price) {
 		try {
 			if (items.containsKey(name)) {
@@ -46,11 +46,11 @@ public class ItemsImpl implements Items {
 			} else {
 				items.put(name.toLowerCase(), price);
 			}
-		} catch (IllegalArgumentException e){
+		} catch (IllegalArgumentException e) {
 			System.err.println(e.toString());
 		}
 	}
-	
+
 	public void updateItemPrice(String name, Double price) {
 		name = name.toLowerCase();
 		if (items.containsKey(name)) {
