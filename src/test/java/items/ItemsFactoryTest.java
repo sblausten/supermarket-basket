@@ -5,6 +5,8 @@ import static org.mockito.Mockito.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.math.BigDecimal;
+
 import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.After;
@@ -38,7 +40,7 @@ public class ItemsFactoryTest {
 		return itemsSpy;
 	}
 	
-	public void MockItemConstructor(Double price) {
+	public void MockItemConstructor(BigDecimal price) {
 		Item testItem = PowerMockito.mock(Item.class);
 		try {
 			PowerMockito.whenNew(Item.class).withArguments("beans", price).thenReturn(testItem);
@@ -70,26 +72,28 @@ public class ItemsFactoryTest {
 
 	@Test
 	public void getNewItem_ShouldReturnItemObjectIfPassedValidName() {
-		MockItemConstructor(0.5);
+		BigDecimal price = new BigDecimal("0.5").setScale(2, BigDecimal.ROUND_HALF_EVEN);
+		MockItemConstructor(price);
 		Items itemsSpy = spyOnItems();
-		when(itemsSpy.getItemPrice("beans")).thenReturn(0.5);
+		when(itemsSpy.getItemPrice("beans")).thenReturn(price);
 		assertThat(itemsSpy.getNewItem("beans"), instanceOf(Item.class));
 	}
 	
 	@Test
 	public void getNewItem_ShouldNotReturnItemObjectIfItemHasNoPrice() {
-		MockItemConstructor((Double) null);
+		MockItemConstructor((BigDecimal) null);
 		Items itemsSpy = spyOnItems();
-		when(itemsSpy.getItemPrice("beans")).thenReturn((Double) null);
+		when(itemsSpy.getItemPrice("beans")).thenReturn((BigDecimal) null);
 		Item result = itemsSpy.getNewItem("beans");
 		assertEquals(result, null);
 	}
 	
 	@Test
-	public void getPrice_ShouldReturnDoubleIfPassedValidItemName() {
+	public void getPrice_ShouldReturnBigDecimalIfPassedValidItemName() {
 		Items testItems = new ItemsFactory();
-		Double returnPrice = testItems.getItemPrice("beans");
-		assertEquals(returnPrice, (Double)0.5);
+		BigDecimal returnPrice = testItems.getItemPrice("beans");
+		BigDecimal expectedPrice = new BigDecimal("0.50");
+		assertEquals(expectedPrice, returnPrice);
 	}
 	
 	@Test
@@ -102,14 +106,15 @@ public class ItemsFactoryTest {
 	@Test
 	public void getPrice_ShouldReturnNullIfNotPassedValidItemName() {
 		Items testItems = new ItemsFactory();
-		Double returnPrice = testItems.getItemPrice("nonexistant");
-		assertEquals(returnPrice, (Double)null);
+		BigDecimal returnPrice = testItems.getItemPrice("nonexistant");
+		assertEquals(returnPrice, (BigDecimal)null);
 	}
 	
 	@Test
 	public void addNewItemType_ShouldPrintExceptionIfItemExists() {
 		Items testItems = new ItemsFactory();
-		testItems.addNewItemType("beans", 0.8);
+		BigDecimal price = new BigDecimal("0.80");
+		testItems.addNewItemType("beans", price);
 		assertEquals("java.lang.IllegalArgumentException: Item already exists. Please update it instead.\n",
 				errContent.toString());
 	}
@@ -117,7 +122,8 @@ public class ItemsFactoryTest {
 	@Test
 	public void updateItemPrice_ShouldPrintWarningIfItemDoesNotExist() {
 		Items testItems = new ItemsFactory();
-		testItems.updateItemPrice("bla", 0.8);
+		BigDecimal price = new BigDecimal("0.80");
+		testItems.updateItemPrice("test", price);
 		assertEquals("Item did not exist so new a item was added.\n",
 				outContent.toString());
 	}

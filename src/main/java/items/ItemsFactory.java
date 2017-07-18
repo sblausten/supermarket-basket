@@ -1,21 +1,22 @@
 package items;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ItemsFactory implements Items {
 
-	private static Map<String, Double> items = new HashMap<String, Double>();
+	private static Map<String, BigDecimal> items = new HashMap<String, BigDecimal>();
 
 	public ItemsFactory() {
-		items.put("coke", 0.7);
-		items.put("beans", 0.5);
-		items.put("oranges", 0.00199);
+		items.put("coke", new BigDecimal("0.70"));
+		items.put("beans", new BigDecimal("0.50"));
+		items.put("oranges", new BigDecimal("0.00199"));
 	}
 
 	public Item getNewItem(String itemName) {
 		try {
-			Double itemPrice = getItemPrice(itemName);
+			BigDecimal itemPrice = getItemPrice(itemName);
 			if (itemPrice != null) {
 				return new Item(itemName, itemPrice);
 			}
@@ -26,7 +27,7 @@ public class ItemsFactory implements Items {
 		}
 	}
 
-	public Double getItemPrice(String itemName) {
+	public BigDecimal getItemPrice(String itemName) {
 		try {
 			itemName = itemName.toLowerCase();
 			if (items.containsKey(itemName)) {
@@ -39,7 +40,7 @@ public class ItemsFactory implements Items {
 		}
 	}
 
-	public void addNewItemType(String name, Double price) {
+	public void addNewItemType(String name, BigDecimal price) {
 		try {
 			if (items.containsKey(name)) {
 				throw new IllegalArgumentException("Item already exists. Please update it instead.");
@@ -51,7 +52,7 @@ public class ItemsFactory implements Items {
 		}
 	}
 
-	public void updateItemPrice(String name, Double price) {
+	public void updateItemPrice(String name, BigDecimal price) {
 		name = name.toLowerCase();
 		if (items.containsKey(name)) {
 			items.replace(name, price);
