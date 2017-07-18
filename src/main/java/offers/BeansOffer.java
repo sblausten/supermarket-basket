@@ -6,12 +6,14 @@ public class BeansOffer implements Offer{
 
 	private static BigDecimal saving = new BigDecimal("-0.50").setScale(2, BigDecimal.ROUND_HALF_EVEN);
 	private static String description = "Beans 3 for 2";
+	private static String itemName = "beans";
 	private static int multiple = 3;
 	
 	private BigDecimal offerSavingTotal;
 	private int offerCount;
 	
-	public BeansOffer(int itemQuantity) {
+	@Override
+	public void setOffer(int itemQuantity) {
 		setOfferCount(itemQuantity);
 		setOfferSavingTotal(itemQuantity);
 	}
@@ -29,6 +31,11 @@ public class BeansOffer implements Offer{
 	@Override
 	public int getOfferCount() {
 		return offerCount;
+	}
+	
+	@Override
+	public String getItemName() {
+		return itemName;
 	}
 	
 	private final void setOfferSavingTotal(int itemQuantity) {

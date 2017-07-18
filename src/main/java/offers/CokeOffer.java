@@ -6,12 +6,14 @@ public class CokeOffer implements Offer {
 
 	private static BigDecimal saving = new BigDecimal("-0.4");
 	private static String description = "Coke 2 for £1";
+	private static String itemName = "coke";
 	private static int multiple = 2;
 	
 	private BigDecimal offerSavingTotal;
 	private int offerCount;
-	
-	public CokeOffer(int itemQuantity) {
+
+	@Override
+	public void setOffer(int itemQuantity) {
 		setOfferCount(itemQuantity);
 		setOfferSavingTotal(itemQuantity);
 	}
@@ -29,6 +31,11 @@ public class CokeOffer implements Offer {
 	@Override
 	public int getOfferCount() {
 		return offerCount;
+	}
+	
+	@Override
+	public String getItemName() {
+		return itemName; 
 	}
 	
 	private final void setOfferSavingTotal(int itemQuantity) {
