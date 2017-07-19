@@ -3,7 +3,6 @@ package till;
 import java.util.ArrayList;
 import java.util.List;
 
-import calculator.BasketCalculator;
 import calculator.ItemsCalculator;
 import calculator.SavingsCalculator;
 import items.Item;
@@ -20,10 +19,10 @@ public class TillGenerator {
 		List<Offer> liveOffers = new ArrayList<Offer>();
 		liveOffers.add(new CokeOffer());
 		liveOffers.add(new BeansOffer());
-		new Till(new BasketCalculator(
+		new BasketTill(
 				new ItemsCalculator(items), 
 				new SavingsCalculator(items, liveOffers)
-		));
+		);
 	}
 
 }

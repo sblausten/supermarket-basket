@@ -1,4 +1,4 @@
-package calculator;
+package till;
 
 import static org.mockito.Mockito.*;
 
@@ -9,9 +9,12 @@ import java.util.List;
 
 import org.junit.Test;
 
+import calculator.ItemsCalculator;
+import calculator.SavingsCalculator;
 import offers.Offer;
+import till.BasketTill;
 
-public class BasketCalculatorTest {
+public class BasketTillTest {
 	
 	private Offer mockOffer() {
 		Offer mockOffer = mock(Offer.class);
@@ -41,7 +44,7 @@ public class BasketCalculatorTest {
 	public void getItemsTotal_ShouldCallGetItemsTotalOnBasketCalculator() {
 		ItemsCalculator mockItems = mockItemsCalculator();
 		SavingsCalculator mockSavings = mockSavingsCalculator();
-		BasketCalculator testCalc = new BasketCalculator(mockItems, mockSavings);
+		BasketTill testCalc = new BasketTill(mockItems, mockSavings);
 		testCalc.getItemsTotal();
 		verify(mockItems, times(1)).getItemsTotal();
 	}
@@ -50,7 +53,7 @@ public class BasketCalculatorTest {
 	public void getSavingsTotal_ShouldCallGetSavingsTotalOnBasketCalculator() {
 		ItemsCalculator mockItems = mockItemsCalculator();
 		SavingsCalculator mockSavings = mockSavingsCalculator();
-		BasketCalculator testCalc = new BasketCalculator(mockItems, mockSavings);
+		BasketTill testCalc = new BasketTill(mockItems, mockSavings);
 		testCalc.getSavingsTotal();
 		verify(mockSavings, times(1)).getSavingsTotal();
 	}
@@ -59,7 +62,7 @@ public class BasketCalculatorTest {
 	public void getOffersApplied_ShouldCallGetOffersAppliedOnBasketCalculator() {
 		ItemsCalculator mockItems = mockItemsCalculator();
 		SavingsCalculator mockSavings = mockSavingsCalculator();
-		BasketCalculator testCalc = new BasketCalculator(mockItems, mockSavings);
+		BasketTill testCalc = new BasketTill(mockItems, mockSavings);
 		testCalc.getOffersApplied();
 		verify(mockSavings, times(1)).getOffersApplied();
 	}

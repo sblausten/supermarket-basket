@@ -1,16 +1,18 @@
-package calculator;
+package till;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+import calculator.ItemsCalculator;
+import calculator.SavingsCalculator;
 import offers.Offer;
 
-public class BasketCalculator {
+public class BasketTill implements Till{
 
 	private SavingsCalculator savingsCalculator;
 	private ItemsCalculator itemsCalculator;
 	
-	public BasketCalculator(ItemsCalculator itemsCalc, SavingsCalculator savingsCalc) {
+	public BasketTill(ItemsCalculator itemsCalc, SavingsCalculator savingsCalc) {
 		savingsCalculator = savingsCalc;
 		itemsCalculator = itemsCalc;
 	}

@@ -5,30 +5,14 @@ import offers.Offer;
 import java.math.BigDecimal;
 import java.util.List;
 
-import calculator.BasketCalculator;
+public interface Till {
 
-public class Till {
+	public BigDecimal getNetTotal();
 
-	private BasketCalculator basketCalculator;
+	public BigDecimal getItemsTotal();
 
-	public Till(BasketCalculator basketCalc) {
-		basketCalculator = basketCalc;
-	}
+	public BigDecimal getSavingsTotal();
 
-	public BigDecimal getNetTotal() {
-		return basketCalculator.getNetTotal();
-	}
-
-	public BigDecimal getItemsTotal() {
-		return basketCalculator.getItemsTotal();
-	}
-
-	public BigDecimal getSavingsTotal() {
-		return basketCalculator.getSavingsTotal();
-	}
-
-	public List<Offer> getOffersApplied() {
-		return basketCalculator.getOffersApplied();
-	}
+	public List<Offer> getOffersApplied();
 
 }
