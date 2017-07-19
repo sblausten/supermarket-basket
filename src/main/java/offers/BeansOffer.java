@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class BeansOffer implements Offer{
 
-	private static BigDecimal saving = new BigDecimal("-0.50").setScale(2, BigDecimal.ROUND_HALF_EVEN);
+	private static BigDecimal saving = new BigDecimal("-0.50");
 	private static String description = "Beans 3 for 2";
 	private static String itemName = "beans";
 	private static int multiple = 3;
@@ -41,8 +41,8 @@ public class BeansOffer implements Offer{
 	private final void setOfferSavingTotal(int itemQuantity) {
 		if (itemQuantity >= BeansOffer.multiple) {
 			BigDecimal offerCount = new BigDecimal(getOfferCount());
-			System.out.println(offerCount);
-			offerSavingTotal = BeansOffer.saving.multiply(offerCount).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+			offerSavingTotal = BeansOffer.saving.multiply(offerCount);
+			offerSavingTotal = offerSavingTotal.setScale(2, BigDecimal.ROUND_HALF_EVEN);
 		} else {
 			offerSavingTotal = new BigDecimal("0.00");
 		}

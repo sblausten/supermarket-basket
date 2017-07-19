@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class CokeOffer implements Offer {
 
-	private static BigDecimal saving = new BigDecimal("-0.4");
+	private static BigDecimal saving = new BigDecimal("-0.40");
 	private static String description = "Coke 2 for £1";
 	private static String itemName = "coke";
 	private static int multiple = 2;
@@ -41,8 +41,8 @@ public class CokeOffer implements Offer {
 	private final void setOfferSavingTotal(int itemQuantity) {
 		if (itemQuantity >= CokeOffer.multiple) {
 			BigDecimal offerCount = new BigDecimal(getOfferCount());
-			System.out.println(offerCount);
-			offerSavingTotal = CokeOffer.saving.multiply(offerCount).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+			offerSavingTotal = CokeOffer.saving.multiply(offerCount);
+			offerSavingTotal = offerSavingTotal.setScale(2, BigDecimal.ROUND_HALF_EVEN);
 		} else {
 			offerSavingTotal = new BigDecimal("0.00");
 		}
