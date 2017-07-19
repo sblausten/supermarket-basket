@@ -2,6 +2,14 @@
 
 First Java project - spec taken from PragDave's [Kata](http://codekata.com/kata/kata01-supermarket-pricing/).
 
+### To download local copy
+```bash
+git clone https://github.com/sblausten/supermarket-kata
+```
+
+### To import into Eclipse so you can run tests and the program
+Please install [Eclipse](https://eclipse.org/downloads/packages/eclipse-ide-java-developers/oxygenr) and follow this [guide](https://github.com/collab-uniba/socialcde4eclipse/wiki/How-to-import-a-GitHub-project-into-Eclipse)
+
 ### Requirements:
 - [x] Add item to shopping basket (as a customer)
 - [x] Add item by weight to shopping basket (as a customer)
